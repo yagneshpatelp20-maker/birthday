@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Happy Birthday Roshni 🎂</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Patrick+Hand&family=Dancing+Script:wght@600&family=Fredoka:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --blue: #1a3fad;
+      --blue2: #1e47c2;
+      --pink: #ff6b9d;
+      --gold: #ffd700
+    }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      overflow: hidden;
+      background: var(--blue)
+    }
+
+    .page {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .5s;
+      z-index: 1
+    }
+
+    .page.active {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 10
+    }
+
+    /* PAGE 1 - PASSCODE */
+    #page1 {
+      background: linear-gradient(135deg, #1a3fad, #2255dd)
+    }
+
+    .passcode-layout {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px
+    }
+
+    .polaroid-frame {
+      background: #fff;
+      padding: 12px 12px 45px;
+      border-radius: 4px;
+      transform: rotate(-5deg);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
+      position: relative;
+      max-width: 260px
+    }
+
+    .polaroid-frame>#lockPhoto {
+      width: 240px;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #2a2a4a, #1a1a3a)
+    }
+
+    .photo-sticker {
+      position: absolute;
+      bottom: 50px;
+      right: 8px;
+      width: 45px;
+      height: 45px;
+      z-index: 2;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
+      animation: stickerBounce 2s ease-in-out infinite
+    }
+
+    @keyframes stickerBounce {
+
+      0%,
+      100% {
+        transform: scale(1) rotate(0deg)
+      }
+
+      50% {
+        transform: scale(1.1) rotate(5deg)
+      }
+    }
+
+    .bow-decor {
+      position: absolute;
+      top: -30px;
+      right: -10px;
+      width: 80px;
+      height: 80px
+    }
+
+    .bear-decor {
+      position: absolute;
+      bottom: -50px;
+      left: -20px;
+      width: 110px
+    }
+
+    .passcode-panel {
+      text-align: center
+    }
+
+    .passcode-panel h2 {
+      font-family: 'Patrick Hand', cursive;
+      color: #fff;
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, .3)
+    }
+
+    .code-display {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 25px
+    }
+
+    .code-box {
+      width: 50px;
+      height: 55px;
+      border: 3px solid rgba(255, 255, 255, .5);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #fff;
+      font-family: 'Fredoka';
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .code-box.filled {
+      border-color: #fff;
+      background: rgba(255, 255, 255, .2);
+      animation: pop .2s ease
+    }
+
+    @keyframes pop {
+      50% {
+        transform: scale(1.15)
+      }
+    }
+
+    .numpad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 240px;
+      margin: 0 auto
+    }
+
+    .num-btn {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      font-size: 1.5rem;
+      font-family: 'Fredoka';
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .num-btn:hover {
+      background: rgba(255, 255, 255, .25);
+      transform: scale(1.08)
+    }
+
+    .num-btn:active {
+      transform: scale(.95)
+    }
+
+    .wrong-shake {
+      animation: shake .4s ease
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      25% {
+        transform: translateX(-10px)
+      }
+
+      75% {
+        transform: translateX(10px)
+      }
+    }
+
+    /* PAGE 2 - HAPPY BIRTHDAY */
+    #page2 {
+      background: #fff
+    }
+
+    .bday-content {
+      text-align: center
+    }
+
+    .bday-content img {
+      max-width: 400px;
+      width: 80vw
+    }
+
+    .bday-title {
+      font-family: 'Bubblegum Sans', cursive;
+      font-size: clamp(2.5rem, 7vw, 4rem);
+      background: linear-gradient(135deg, #ff6b9d, #ffd700, #ff6b9d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      animation: titleBounce 2s ease infinite
+    }
+
+    @keyframes titleBounce {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    /* PAGE 3 - CAKE ANIMATION */
+    #page3 {
+      background: linear-gradient(135deg, #1a3fad, #2255dd)
+    }
+
+    .cake-section {
+      text-align: center
+    }
+
+    .cake-section img {
+      max-width: 350px;
+      width: 70vw;
+      animation: cakeFloat 3s ease-in-out infinite
+    }
+
+    @keyframes cakeFloat {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-15px)
+      }
+    }
+
+    #typed-text {
+      font-family: 'Bubblegum Sans', cursive;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      color: #fff;
+      min-height: 1.5em;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, .3)
+    }
+
+    .candle-sparks {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none
+    }
+
+    /* PAGE 4 - GIFTS */
+    #page4 {
+      background: linear-gradient(180deg, #e8f0ff, #c5d8ff)
+    }
+
+    .gifts-section {
+      text-align: center
+    }
+
+    .gifts-section h2 {
+      font-family: 'Fredoka';
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: #222;
+      margin-bottom: 30px
+    }
+
+    .gifts-row {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px
+    }
+
+    .gift-box {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+      transition: all .3s;
+      animation: giftBob 2s ease-in-out infinite;
+      position: relative
+    }
+
+    .gift-box:nth-child(2) {
+      animation-delay: .3s
+    }
+
+    .gift-box:nth-child(3) {
+      animation-delay: .6s
+    }
+
+    .gift-box:hover {
+      transform: scale(1.12) !important
+    }
+
+    .gift-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain
+    }
+
+    @keyframes giftBob {
+
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+    }
+
+    .gift-hint {
+      font-family: 'Patrick Hand', cursive;
+      color: #555;
+      font-size: 1.2rem;
+      margin-top: 10px
+    }
+
+    .gift-msg-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity .3s
+    }
+
+    .gift-msg-overlay.open {
+      display: flex;
+      opacity: 1
+    }
+
+    .gift-msg-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      max-width: 400px;
+      text-align: center;
+      animation: giftReveal .5s ease;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .3)
+    }
+
+    @keyframes giftReveal {
+      from {
+        transform: scale(.5) rotateY(90deg);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1) rotateY(0);
+        opacity: 1
+      }
+    }
+
+    .gift-msg-card .gift-emoji {
+      font-size: 3rem;
+      margin-bottom: 15px
+    }
+
+    .gift-msg-card p {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.3rem;
+      color: #333;
+      line-height: 1.6
+    }
+
+    .gift-msg-card button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 30px;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Fredoka';
+      font-size: 1rem;
+      cursor: pointer
+    }
+
+    /* PAGE 5 - LOVE LETTER */
+    #page5 {
+      background: linear-gradient(135deg, #1a3fad, #2255dd)
+    }
+
+    .letter-layout {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px
+    }
+
+    .photo-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+      transform: rotate(-3deg)
+    }
+
+    .photo-strip img {
+      width: 180px;
+      height: 130px;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 2px
+    }
+
+    .photo-strip img:first-child {
+      object-position: center 20%
+    }
+
+    .photo-strip img:nth-child(3) {
+      object-position: center 15%
+    }
+
+    .photo-strip .strip-label {
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      color: #e91e63;
+      font-size: 1rem;
+      padding: 4px 0
+    }
+
+    .envelope-section {
+      position: relative;
+      text-align: center
+    }
+
+    .envelope-section img {
+      max-width: 300px;
+      width: 60vw
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: -50px;
+      left: -20px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-family: 'Dancing Script', cursive;
+      color: #e91e63;
+      font-size: 1.1rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+      animation: bubblePop 2s ease infinite
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #fff
+    }
+
+    @keyframes bubblePop {
+
+      0%,
+      100% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.05)
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 2rem;
+      animation: heartFloat 3s ease-in-out infinite
+    }
+
+    @keyframes heartFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1)
+      }
+
+      50% {
+        transform: translateY(-15px) scale(1.2)
+      }
+    }
+
+    /* SHARED */
+    .nav-btn {
+      padding: 12px 40px;
+      border: none;
+      border-radius: 30px;
+      font-family: 'Fredoka';
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all .3s;
+      margin-top: 25px;
+      font-weight: 600
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.05)
+    }
+
+    .btn-dark {
+      background: #222;
+      color: #fff
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--blue)
+    }
+
+    .btn-pink {
+      background: #ff6b9d;
+      color: #fff
+    }
+
+    .confetti-piece {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 1000;
+      pointer-events: none;
+      animation: confettiFall 3s ease-in forwards
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg)
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg)
+      }
+    }
+
+    .page-dots {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 50
+    }
+
+    .page-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      transition: all .3s
+    }
+
+    .page-dots span.active {
+      background: #fff;
+      transform: scale(1.3)
+    }
+
+    /* TABLET */
+    @media(max-width:900px) {
+      .passcode-layout {
+        gap: 40px
+      }
+
+      .polaroid-frame {
+        max-width: 220px
+      }
+
+      .polaroid-frame>#lockPhoto {
+        width: 200px;
+        height: 240px
+      }
+
+      .photo-sticker {
+        width: 38px;
+        height: 38px;
+        bottom: 48px
+      }
+
+      .bday-content img {
+        max-width: 350px
+      }
+
+      .cake-section img {
+        max-width: 300px
+      }
+
+      .gift-box {
+        width: 130px;
+        height: 130px
+      }
+
+      .photo-strip img {
+        width: 160px;
+        height: 115px
+      }
+
+      .envelope-section img {
+        max-width: 250px
+      }
+
+      .letter-layout {
+        gap: 30px
+      }
+    }
+
+    /* MOBILE */
+    @media(max-width:600px) {
+      .passcode-layout {
+        gap: 25px;
+        flex-direction: column
+      }
+
+      .polaroid-frame {
+        max-width: 200px;
+        padding: 8px 8px 35px
+      }
+
+      .polaroid-frame>#lockPhoto {
+        width: 180px;
+        height: 210px
+      }
+
+      .photo-sticker {
+        width: 35px;
+        height: 35px;
+        bottom: 40px;
+        right: 5px
+      }
+
+      .num-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem
+      }
+
+      .numpad {
+        gap: 10px
+      }
+
+      .code-box {
+        width: 42px;
+        height: 48px;
+        font-size: 1.5rem
+      }
+
+      .bday-content img {
+        max-width: 280px;
+        width: 85vw
+      }
+
+      .bday-title {
+        font-size: clamp(2rem, 8vw, 3rem)
+      }
+
+      .cake-section img {
+        max-width: 250px;
+        width: 75vw
+      }
+
+      #typed-text {
+        font-size: clamp(1.5rem, 6vw, 2.5rem)
+      }
+
+      .gifts-row {
+        gap: 15px
+      }
+
+      .gift-box {
+        width: 100px;
+        height: 100px
+      }
+
+      .gift-hint {
+        font-size: 1rem
+      }
+
+      .gift-msg-card {
+        padding: 25px;
+        max-width: 320px;
+        margin: 0 15px
+      }
+
+      .gift-msg-card p {
+        font-size: 1.1rem
+      }
+
+      .letter-layout {
+        flex-direction: column;
+        gap: 20px
+      }
+
+      .photo-strip {
+        transform: rotate(-2deg)
+      }
+
+      .photo-strip img {
+        width: 140px;
+        height: 100px
+      }
+
+      .envelope-section img {
+        max-width: 220px;
+        width: 70vw
+      }
+
+      .speech-bubble {
+        font-size: .95rem;
+        top: -40px;
+        left: -10px;
+        padding: 6px 14px
+      }
+
+      .envelope-section>p {
+        font-size: 1.05rem !important;
+        max-width: 260px !important
+      }
+
+      .nav-btn {
+        padding: 10px 32px;
+        font-size: 1rem;
+        margin-top: 18px
+      }
+
+      .floating-heart {
+        font-size: 1.5rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PAGE DOTS -->
+  <div class="page-dots" id="pageDots"></div>
+
+  <!-- PAGE 1: PASSCODE LOCK -->
+  <div class="page active" id="page1">
+    <div class="passcode-layout">
+      <div class="polaroid-frame">
+        <img src="photos/photo1.jpg" alt="Roshni" id="lockPhoto">
+        <img src="assets/sticker.png" class="photo-sticker" alt="">
+      </div>
+      <div class="passcode-panel">
+        <h2>Enter the passcode 🔒</h2>
+        <div class="code-display" id="codeDisplay">
+          <div class="code-box"></div>
+          <div class="code-box"></div>
+          <div class="code-box"></div>
+          <div class="code-box"></div>
+        </div>
+        <div class="numpad" id="numpad">
+          <button class="num-btn" data-num="1">1</button>
+          <button class="num-btn" data-num="2">2</button>
+          <button class="num-btn" data-num="3">3</button>
+          <button class="num-btn" data-num="4">4</button>
+          <button class="num-btn" data-num="5">5</button>
+          <button class="num-btn" data-num="6">6</button>
+          <button class="num-btn" data-num="7">7</button>
+          <button class="num-btn" data-num="8">8</button>
+          <button class="num-btn" data-num="9">9</button>
+          <button class="num-btn" data-num="*">✻</button>
+          <button class="num-btn" data-num="0">0</button>
+          <button class="num-btn" data-num="#">⌫</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: HAPPY BIRTHDAY -->
+  <div class="page" id="page2">
+    <div class="bday-content">
+      <h1 class="bday-title">HAPPY<br>BIRTHDAY!</h1>
+      <img src="assets/characters.png" alt="Birthday Characters">
+      <br>
+      <button class="nav-btn btn-dark" onclick="goTo(3)">NEXT ➜</button>
+    </div>
+  </div>
+
+  <!-- PAGE 3: CAKE + TYPING -->
+  <div class="page" id="page3">
+    <div class="cake-section">
+      <div id="typed-text"></div>
+      <br>
+      <img src="assets/cake.png" alt="Birthday Cake">
+      <br>
+      <button class="nav-btn btn-light" onclick="goTo(4)">NEXT ➜</button>
+    </div>
+  </div>
+
+  <!-- PAGE 4: GIFT BOXES -->
+  <div class="page" id="page4">
+    <div class="gifts-section">
+      <h2>Gift for you 🎁</h2>
+      <div class="gifts-row">
+        <div class="gift-box" onclick="openGift(0)"><img src="assets/gift1.png" alt="Gift"></div>
+        <div class="gift-box" onclick="openGift(1)"><img src="assets/gift2.png" alt="Gift"></div>
+        <div class="gift-box" onclick="openGift(2)"><img src="assets/gift3.png" alt="Gift"></div>
+      </div>
+      <p class="gift-hint">click any gift to open 🎀</p>
+      <button class="nav-btn btn-dark" onclick="goTo(5)" style="margin-top:15px">NEXT ➜</button>
+    </div>
+  </div>
+
+  <!-- GIFT MESSAGE OVERLAY -->
+  <div class="gift-msg-overlay" id="giftOverlay">
+    <div class="gift-msg-card">
+      <div class="gift-emoji" id="giftEmoji">🎁</div>
+      <p id="giftMsg"></p>
+      <button onclick="closeGift()">Close 💕</button>
+    </div>
+  </div>
+
+  <!-- PAGE 5: CRUSH LETTER -->
+  <div class="page" id="page5">
+    <div class="letter-layout">
+      <div class="photo-strip">
+        <img src="photos/photo2.png" alt="Memory">
+        <img src="photos/photo3.png" alt="Memory">
+        <img src="photos/photo4.png" alt="Memory">
+        <div class="strip-label">CRUSH 💫</div>
+      </div>
+      <div class="envelope-section">
+        <div class="speech-bubble">You're special ✨💕</div>
+        <img src="assets/envelope.png" alt="Crush Letter">
+        <div class="floating-heart" style="right:-20px;top:30px">❤️</div>
+        <p
+          style="color:#fff;font-family:'Patrick Hand',cursive;font-size:1.2rem;margin-top:20px;max-width:300px;line-height:1.7;text-shadow:1px 1px 3px rgba(0,0,0,.3)">
+          You're the kind of person who makes everyone's day brighter without even trying. I just want you to know that
+          someone out here thinks you're absolutely amazing. Your smile, your vibe, everything about you is just ✨
+          perfect. Happy Birthday, Roshni! 🎂💫
+        </p>
+        <button class="nav-btn btn-pink" onclick="goTo(1)">⬅ BACK</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+    /* PASSCODE - change this to her birthday like 2804 for 28 April */
+    const PASSCODE = '2907';
+    let entered = '';
+    const codeBoxes = document.querySelectorAll('.code-box');
+
+    document.getElementById('numpad').addEventListener('click', e => {
+      const btn = e.target.closest('.num-btn');
+      if (!btn) return;
+      const val = btn.dataset.num;
+      if (val === '#') { entered = ''; updateCode(); return; }
+      if (val === '*' || entered.length >= 4) return;
+      entered += val;
+      updateCode();
+      if (entered.length === 4) {
+        setTimeout(() => {
+          if (entered === PASSCODE) {
+            goTo(2);
+            launchConfetti();
+          } else {
+            document.getElementById('codeDisplay').classList.add('wrong-shake');
+            setTimeout(() => {
+              document.getElementById('codeDisplay').classList.remove('wrong-shake');
+              entered = '';
+              updateCode();
+            }, 500);
+          }
+        }, 300);
+      }
+    });
+
+    function updateCode() {
+      codeBoxes.forEach((box, i) => {
+        box.textContent = entered[i] ? '●' : '';
+        box.classList.toggle('filled', !!entered[i]);
+      });
+    }
+
+    /* PAGE NAVIGATION */
+    let currentPage = 1;
+    const totalPages = 5;
+
+    function goTo(n) {
+      document.getElementById('page' + currentPage).classList.remove('active');
+      currentPage = n;
+      document.getElementById('page' + currentPage).classList.add('active');
+      updateDots();
+      if (n === 2) launchConfetti();
+      if (n === 3) startTyping();
+
+    }
+
+    /* PAGE DOTS */
+    const dotsEl = document.getElementById('pageDots');
+    for (let i = 1; i <= totalPages; i++) {
+      const d = document.createElement('span');
+      if (i === 1) d.classList.add('active');
+      dotsEl.appendChild(d);
+    }
+    function updateDots() {
+      dotsEl.querySelectorAll('span').forEach((d, i) => {
+        d.classList.toggle('active', i + 1 === currentPage);
+      });
+    }
+
+    /* TYPING ANIMATION */
+    let typingDone = false;
+    function startTyping() {
+      if (typingDone) return;
+      typingDone = true;
+      const text = 'Happy Birthday\nRoshni! 🎂🎉';
+      const el = document.getElementById('typed-text');
+      el.innerHTML = '';
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i >= text.length) { clearInterval(interval); return; }
+        if (text[i] === '\n') el.innerHTML += '<br>';
+        else el.innerHTML += text[i];
+        i++;
+      }, 80);
+    }
+
+    /* CONFETTI */
+    function launchConfetti() {
+      const colors = ['#ff6b9d', '#ffd700', '#00d4ff', '#ff4444', '#44ff44', '#ff69b4', '#7b68ee'];
+      for (let i = 0; i < 60; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti-piece';
+        c.style.left = Math.random() * 100 + 'vw';
+        c.style.top = -20 + 'px';
+        c.style.background = colors[Math.floor(Math.random() * colors.length)];
+        c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        c.style.width = (6 + Math.random() * 10) + 'px';
+        c.style.height = (6 + Math.random() * 10) + 'px';
+        c.style.animationDelay = Math.random() * 2 + 's';
+        c.style.animationDuration = (2 + Math.random() * 2) + 's';
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 5000);
+      }
+    }
+
+    /* GIFT MESSAGES */
+    const giftData = [
+      { emoji: '💝', msg: 'You probably don\'t know this, but you make everyone around you smile without even trying. Happy Birthday, Roshni! 🎂' },
+      { emoji: '🌟', msg: 'There\'s something really special about you. I hope this birthday is as amazing as you are! ✨' },
+      { emoji: '🎂', msg: 'I made this whole website just to say — you deserve the world and more. Wishing you the happiest birthday ever! 🥳' }
+    ];
+
+    function openGift(i) {
+      document.getElementById('giftEmoji').textContent = giftData[i].emoji;
+      document.getElementById('giftMsg').textContent = giftData[i].msg;
+      document.getElementById('giftOverlay').classList.add('open');
+    }
+    function closeGift() {
+      document.getElementById('giftOverlay').classList.remove('open');
+    }
+
+
+  </script>
+</body>
+
+</html>
