@@ -1191,12 +1191,11 @@
     <div class="gifts-section">
       <h2>Gift for you 🎁</h2>
       <div class="gifts-row">
-        <div class="gift-box" onclick="openGift(0)"><img src="assets/gift1.png" alt="Gift"></div>
-        <div class="gift-box" onclick="openGift(1)"><img src="assets/gift2.png" alt="Gift"></div>
-        <div class="gift-box" onclick="openGift(2)"><img src="assets/gift3.png" alt="Gift"></div>
+        <div class="gift-box" id="giftBox0" onclick="openGift(0)"><img src="assets/gift1.png" alt="Gift"></div>
+        <div class="gift-box" id="giftBox1" onclick="openGift(1)"><img src="assets/gift2.png" alt="Gift"></div>
+        <div class="gift-box" id="giftBox2" onclick="openGift(2)"><img src="assets/gift3.png" alt="Gift"></div>
       </div>
-      <p class="gift-hint">click any gift to open 🎀</p>
-      <button class="nav-btn btn-dark" onclick="goTo(5)" style="margin-top:15px">NEXT ➜</button>
+      <p class="gift-hint" id="giftHint">Open all gifts to continue 🎀</p>
     </div>
   </div>
 
@@ -1362,6 +1361,19 @@
       }
     }
 
+    /* GIFT TRACKING — all 3 must be opened before auto-advancing */
+    const giftOpened = [false, false, false];
+
+    function checkAllGiftsOpened() {
+      const remaining = giftOpened.filter(v => !v).length;
+      const hint = document.getElementById('giftHint');
+      if (remaining === 0) {
+        hint.textContent = '🎉 All gifts opened! Taking you to the next page…';
+      } else {
+        hint.textContent = `Open all gifts to continue 🎀 (${3 - remaining}/3 opened)`;
+      }
+    }
+
     /* GIFT POPUP CARD DATA — unique theme per gift */
     const giftCards = [
       {
@@ -1400,6 +1412,11 @@
     ];
 
     function openGift(i) {
+      giftOpened[i] = true;
+      // Mark the gift box as opened (dim it slightly)
+      const box = document.getElementById('giftBox' + i);
+      if (box) { box.style.opacity = '0.6'; box.style.pointerEvents = 'none'; box.title = 'Already opened'; }
+      checkAllGiftsOpened();
       const d = giftCards[i];
 
       // Clone wrap to reset animations
@@ -1462,7 +1479,13 @@
     function closePopupCard() {
       const overlay = document.getElementById('popupCardOverlay');
       overlay.style.opacity = '0';
-      setTimeout(() => { overlay.style.display = 'none'; }, 400);
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        // If all gifts are opened, auto-navigate to page 5
+        if (giftOpened.every(v => v)) {
+          setTimeout(() => goTo(5), 600);
+        }
+      }, 400);
     }
 
 
